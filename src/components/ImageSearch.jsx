@@ -18,16 +18,17 @@ function ImageSearch(props) {
         <div className="flex items-center">
           <input
             type="text"
-            className="min-w-56 border border-gray-700 p-2 rounded-md"
-            placeholder="Search"
+            className="bg-gray-200 border-s-2 border-gray-200 
+            rounded w-full py-2 px-4 text-gray-700 focus:outline-none focus:bg-white
+             focus:border-purple-500"
+            placeholder="What's on your mind..."
             value={searchTearm}
             onChange={handleChange}
           />
           <button
             type="submit"
-            className="text-gray-200 ml-2 
-            bg-gradient-to-b from-blue-100 via-blue-300 to-blue-500 py-2 px-6 rounded-md
-            hover:text-white hover:scale-105 hover:bg-gradient-to-t"
+            className="shadow bg-purple-500 hover:bg-purple-400 hover:scale-105 focus:shadow-outline
+             focus:outline-none text-white font-bold py-2 px-4 ml-4 rounded "
           >
             Search
           </button>
