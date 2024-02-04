@@ -1,12 +1,27 @@
-function ImageSearch() {
+import { useState } from "react";
+
+function ImageSearch(props) {
+  const [searchTearm, setSearchTerm] = useState("");
+
+  const handleChange = (e) => {
+    let term = e.target.value;
+    setSearchTerm(term);
+  };
   return (
     <div className="max-w-sm mx-auto my-6 rounded">
-      <form>
+      <form
+        onSubmit={(e) => {
+          props.search(searchTearm);
+          e.preventDefault();
+        }}
+      >
         <div className="flex items-center">
           <input
             type="text"
             className="min-w-56 border border-gray-700 p-2 rounded-md"
             placeholder="Search"
+            value={searchTearm}
+            onChange={handleChange}
           />
           <button
             type="submit"

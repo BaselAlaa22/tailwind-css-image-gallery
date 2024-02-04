@@ -7,7 +7,12 @@ function App() {
   const [term, setTerm] = useState("");
   const BASE_URL = `https://pixabay.com/api/?key=${
     import.meta.env.VITE_PIXABAY_API_KEY
-  }&q=${term}&image_type=photo&pretty=true`;
+  }&q=${term}&image_type=photo&pretty=true&safesearch=true`;
+
+  const search = (value) => {
+    value = value.replace(" ", "+");
+    setTerm(value);
+  };
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -17,10 +22,10 @@ function App() {
       seIsLoading(false);
     };
     fetchImages();
-  }, []);
+  }, [term]);
   return (
     <div className="container mx-auto">
-      <ImageSearch />
+      <ImageSearch search={search} />
 
       {isLoading ? (
         <h1 className="text-6xl text-black text-center mx-auto mt-36">
